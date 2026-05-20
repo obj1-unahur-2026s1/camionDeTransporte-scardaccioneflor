@@ -1,9 +1,28 @@
 import cosas.*
 
-describe "group of test for cosas" {
+describe "Se testean las cosas armadas" {
 
-  test "first test" {
-    assert.that(true)
+   test "La cantidad de ladrillos es 7, entonces su peso es 14" {
+    paqueteDeLadrillos.cantidadDeLadrillos(7)
+    assert.equals(14, paqueteDeLadrillos.peso())
   }
+  test "La bateria tiene misiles, entonces su peso es de 300" {
+   assert.equals(300, bateriaAntiaerea.peso())
+  }
+  test "La bateria cambia y ahora no tiene misiles, por lo que su peligrosidad es 0" {
+    bateriaAntiaerea.cambiarModo()
+    assert.equals(0, bateriaAntiaerea.peligrosidad())
+  }
+
+  test "Se agregan bumblebee y knightrider al contenedor y asi pesa 1400" {
+    contenedorPortuario.agregarCosas(bumblebee)
+    contenedorPortuario.agregarCosas(knightRider)
+    assert.equals(1400, contenedorPortuario.peso())
+  }
+test "Se envuelve un paquete de ladrillos con 7 ladrillos y su pesso es de 14" {
+ embalajeDeSeguridad.envolver(paqueteDeLadrillos)
+paqueteDeLadrillos.cantidadDeLadrillos(7)
+assert.equals(14, embalajeDeSeguridad.peso())
+}
 
 }

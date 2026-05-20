@@ -1,9 +1,38 @@
+import cosas.*
 import camion.*
 
 describe "group of test for camion" {
 
-  test "first test" {
-    assert.that(true)
+  test "Se agrega al camion un bumblebee como robot y su peso sera--" {
+  bumblebee.cambiarModo()
+  camion.cargarCosas(bumblebee)
+  assert.equals(1800, camion.peso())
   }
+  test "se agrega al camion 150kg de arena y el camion ahora piensa 1950" {
+  bumblebee.cambiarModo()
+  camion.cargarCosas(bumblebee)
+  arenaGranel.cambiarPeso(150) 
+  camion.cargarCosas(arenaGranel)
+  assert.equals(1950, camion.peso()) 
+  }
+test "Ahora se agrega la bateriaAntiaerea junto a sus misiles y el camion va a pesar 2250 " {
+  bumblebee.cambiarModo()
+  camion.cargarCosas(bumblebee)
+  arenaGranel.cambiarPeso(150) 
+  camion.cargarCosas(arenaGranel)
+  camion.cargarCosas(bateriaAntiaerea)
+  assert.equals(2250, camion.peso())
+}
+test "se agrega el embalaje a un paquete de ladrillos con 80 ladrillos, entonces el camion va a pesar 2410" {
+  bumblebee.cambiarModo()
+  camion.cargarCosas(bumblebee)
+  arenaGranel.cambiarPeso(150) 
+  camion.cargarCosas(arenaGranel)
+  camion.cargarCosas(bateriaAntiaerea)
+  paqueteDeLadrillos.cantidadDeLadrillos(80)
+  camion.cargarCosas(paqueteDeLadrillos)
+  assert.equals(2410, camion.peso())
+}
+
 
 }
